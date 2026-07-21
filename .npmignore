@@ -1,8 +1,5 @@
-build/
+.github/
 spec/
-*.coffee
-.travis.yml
-.npmignore
+node_modules/
 npm-debug.log
-.node-version
 .DS_Store

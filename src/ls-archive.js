@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const util = require("util");
 
 class ArchiveEntry {
   constructor(path1, type) {
@@ -103,7 +102,7 @@ function wrapCallback(cb) {
 
   return function(error, data) {
     if (!called) {
-      if ((error != null) && !util.isError(error)) {
+      if ((error != null) && !(error instanceof Error)) {
         error = new Error(error);
       }
       called = true;

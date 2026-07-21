@@ -1,8 +1,9 @@
 {
-  "name": "@pulsar-edit/ls-archive",
+  "name": "@lumine-code/ls-archive",
   "description": "A package for listing and reading files in archive files",
-  "version": "2.0.0",
-  "licenses": "MIT",
+  "version": "3.0.0",
+  "license": "MIT",
+  "author": "lumine-code",
   "keywords": [
     "ls",
     "zip",
@@ -14,33 +15,29 @@
     "archives",
     "uncompress"
   ],
-  "author": {
-    "name": "Kevin Sawicki",
-    "email": "kevin@github.com"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pulsar-edit/node-ls-archive.git"
+    "url": "https://github.com/lumine-code/node-ls-archive.git"
   },
   "bugs": {
-    "url": "https://github.com/pulsar-edit/node-ls-archive/issues"
+    "url": "https://github.com/lumine-code/node-ls-archive/issues"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "main": "./src/ls-archive.js",
   "bin": {
     "lsa": "./bin/lsa"
   },
-  "devDependencies": {
-    "jasmine-focused": "1.x"
-  },
   "scripts": {
-    "test": "jasmine-focused --captureExceptions spec"
+    "test": "jasmine"
   },
   "dependencies": {
-    "async": "^3.2.6",
-    "colors": "^1.4.0",
-    "optimist": "^0.6.1",
-    "tar": "^7.5.9",
+    "tar": "^7.5.20",
     "unbzip2-stream": "^1.4.3",
-    "yauzl": "^3.2.0"
+    "yauzl": "^3.4.0"
+  },
+  "devDependencies": {
+    "jasmine": "^6.3.0"
   }
 }

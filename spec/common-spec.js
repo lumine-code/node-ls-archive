@@ -1,48 +1,54 @@
 const archive = require('../src/ls-archive');
 const path = require('path');
 
-describe("Common behavior", function() {
-  describe(".list()", function() {
-    it("calls back with an error for unsupported extensions", function() {
-      let pathError = null;
-      const callback = error => pathError = error;
-      archive.list(path.join('tmp', 'file.txt'), callback);
-      waitsFor(() => pathError != null);
-      runs(() => expect(pathError.message).not.toBeNull());
+describe("Common behavior", () => {
+  describe(".list()", () => {
+    it("calls back with an error for unsupported extensions", (done) => {
+      archive.list(path.join('tmp', 'file.txt'), (error) => {
+        expect(error).not.toBeNull();
+        expect(error.message).not.toBeNull();
+        done();
+      });
     });
 
-    it("returns undefined", () => expect(archive.list(path.join('tmp', 'file.zip'), function() {})).toBeUndefined());
+    it("returns undefined", () => {
+      expect(archive.list(path.join('tmp', 'file.zip'), () => {})).toBeUndefined();
+    });
   });
 
-  describe(".readFile()", function() {
-    it("calls back with an error for unsupported extensions", function() {
-      let pathError = null;
-      const callback = error => pathError = error;
-      archive.readFile(path.join('tmp', 'file.txt'), 'file.txt', callback);
-      waitsFor(() => pathError != null);
-      runs(() => expect(pathError.message).not.toBeNull());
+  describe(".readFile()", () => {
+    it("calls back with an error for unsupported extensions", (done) => {
+      archive.readFile(path.join('tmp', 'file.txt'), 'file.txt', (error) => {
+        expect(error).not.toBeNull();
+        expect(error.message).not.toBeNull();
+        done();
+      });
     });
 
-    it("returns undefined", () => expect(archive.readFile(path.join('tmp', 'file.txt'), 'file.txt', function() {})).toBeUndefined());
+    it("returns undefined", () => {
+      expect(archive.readFile(path.join('tmp', 'file.txt'), 'file.txt', () => {})).toBeUndefined();
+    });
   });
 
-  describe(".isPathSupported()", () => it("returns true for supported path extensions", function() {
-    expect(archive.isPathSupported(`${path.sep}a.epub`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.zip`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.jar`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.war`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.tar`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.tgz`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.tar.gz`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.whl`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.egg`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.xpi`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.nupkg`)).toBe(true);
-    expect(archive.isPathSupported(`${path.sep}a.bar.gz`)).toBe(false);
-    expect(archive.isPathSupported(`${path.sep}a.txt`)).toBe(false);
-    expect(archive.isPathSupported(`${path.sep}`)).toBe(false);
-    expect(archive.isPathSupported('')).toBe(false);
-    expect(archive.isPathSupported(null)).toBe(false);
-    expect(archive.isPathSupported()).toBe(false);
-  }));
+  describe(".isPathSupported()", () => {
+    it("returns true for supported path extensions", () => {
+      expect(archive.isPathSupported(`${path.sep}a.epub`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.zip`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.jar`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.war`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.tar`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.tgz`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.tar.gz`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.whl`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.egg`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.xpi`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.nupkg`)).toBe(true);
+      expect(archive.isPathSupported(`${path.sep}a.bar.gz`)).toBe(false);
+      expect(archive.isPathSupported(`${path.sep}a.txt`)).toBe(false);
+      expect(archive.isPathSupported(`${path.sep}`)).toBe(false);
+      expect(archive.isPathSupported('')).toBe(false);
+      expect(archive.isPathSupported(null)).toBe(false);
+      expect(archive.isPathSupported()).toBe(false);
+    });
+  });
 });
