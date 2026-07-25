@@ -5,15 +5,14 @@
   "license": "MIT",
   "author": "lumine-code",
   "keywords": [
-    "ls",
+    "archive",
     "zip",
-    "gzip",
     "tar",
+    "gzip",
     "unzip",
     "gunzip",
-    "archive",
-    "archives",
-    "uncompress"
+    "uncompress",
+    "bzip2"
   ],
   "repository": {
     "type": "git",
