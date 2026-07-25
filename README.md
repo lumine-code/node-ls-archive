@@ -1,6 +1,6 @@
-# @lumine-code/ls-archive
+# ls-archive
 
-A package for listing and reading files in archive files.
+Lists and reads files inside archive files.
 
 ## Features
 

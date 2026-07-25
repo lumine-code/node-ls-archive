@@ -1,6 +1,6 @@
 {
   "name": "@lumine-code/ls-archive",
-  "description": "A package for listing and reading files in archive files",
+  "description": "Lists and reads files inside archive files.",
   "version": "3.0.0",
   "license": "MIT",
   "author": "lumine-code",
