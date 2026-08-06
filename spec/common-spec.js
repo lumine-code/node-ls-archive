@@ -1,10 +1,10 @@
-const archive = require('../src/ls-archive');
-const path = require('path');
+const archive = require("../src/ls-archive");
+const path = require("path");
 
 describe("Common behavior", () => {
   describe(".list()", () => {
     it("calls back with an error for unsupported extensions", (done) => {
-      archive.list(path.join('tmp', 'file.txt'), (error) => {
+      archive.list(path.join("tmp", "file.txt"), (error) => {
         expect(error).not.toBeNull();
         expect(error.message).not.toBeNull();
         done();
@@ -12,13 +12,13 @@ describe("Common behavior", () => {
     });
 
     it("returns undefined", () => {
-      expect(archive.list(path.join('tmp', 'file.zip'), () => {})).toBeUndefined();
+      expect(archive.list(path.join("tmp", "file.zip"), () => {})).toBeUndefined();
     });
   });
 
   describe(".readFile()", () => {
     it("calls back with an error for unsupported extensions", (done) => {
-      archive.readFile(path.join('tmp', 'file.txt'), 'file.txt', (error) => {
+      archive.readFile(path.join("tmp", "file.txt"), "file.txt", (error) => {
         expect(error).not.toBeNull();
         expect(error.message).not.toBeNull();
         done();
@@ -26,7 +26,7 @@ describe("Common behavior", () => {
     });
 
     it("returns undefined", () => {
-      expect(archive.readFile(path.join('tmp', 'file.txt'), 'file.txt', () => {})).toBeUndefined();
+      expect(archive.readFile(path.join("tmp", "file.txt"), "file.txt", () => {})).toBeUndefined();
     });
   });
 
@@ -46,7 +46,7 @@ describe("Common behavior", () => {
       expect(archive.isPathSupported(`${path.sep}a.bar.gz`)).toBe(false);
       expect(archive.isPathSupported(`${path.sep}a.txt`)).toBe(false);
       expect(archive.isPathSupported(`${path.sep}`)).toBe(false);
-      expect(archive.isPathSupported('')).toBe(false);
+      expect(archive.isPathSupported("")).toBe(false);
       expect(archive.isPathSupported(null)).toBe(false);
       expect(archive.isPathSupported()).toBe(false);
     });
