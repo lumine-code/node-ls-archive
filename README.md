@@ -45,50 +45,39 @@ Returns `true` when the archive path has a supported extension, `false` otherwis
 
 ### archive.list(archivePath, [options], callback)
 
-List the files and folders inside the archive file path. The `callback` gets two
-arguments `(error, archiveEntries)`.
+List the files and folders inside the archive file path. The `callback` gets two arguments `(error, archiveEntries)`.
 
 `archivePath` - The string path to the archive file.
 
-`options` - An optional object. Set `tree: true` to receive the entries nested
-under their parent [ArchiveEntry](#archiveentry) directories instead of a flat list.
+`options` - An optional object. Set `tree: true` to receive the entries nested under their parent [ArchiveEntry](#archiveentry) directories instead of a flat list.
 
-`callback` - The function to call after reading completes with an error or an
-array of [ArchiveEntry](#archiveentry) objects.
+`callback` - The function to call after reading completes with an error or an array of [ArchiveEntry](#archiveentry) objects.
 
 ### archive.readFile(archivePath, filePath, callback)
 
-Read the contents of the file path in the archive path and invoke the callback
-with those contents. The `callback` gets two arguments `(error, filePathContents)`.
+Read the contents of the file path in the archive path and invoke the callback with those contents. The `callback` gets two arguments `(error, filePathContents)`.
 
 `archivePath` - The string path to the archive file.
 
 `filePath` - The string path inside the archive to read.
 
-`callback` - The function to call after reading completes with an error or the
-buffer contents.
+`callback` - The function to call after reading completes with an error or the buffer contents.
 
 ### archive.readGzip(gzipArchivePath, callback)
 
-Read the contents of the gzipped archive path and invoke the callback with the
-buffer contents of the uncompressed payload. The `callback` gets two arguments
-`(error, pathContents)`.
+Read the contents of the gzipped archive path and invoke the callback with the buffer contents of the uncompressed payload. The `callback` gets two arguments `(error, pathContents)`.
 
 `gzipArchivePath` - The string path to the gzipped archive file.
 
-`callback` - The function to call after reading completes with an error or the
-buffer contents.
+`callback` - The function to call after reading completes with an error or the buffer contents.
 
 ### archive.readBzip(bzipArchivePath, callback)
 
-Read the contents of the bzipped archive path and invoke the callback with the
-buffer contents of the uncompressed payload. The `callback` gets two arguments
-`(error, pathContents)`.
+Read the contents of the bzipped archive path and invoke the callback with the buffer contents of the uncompressed payload. The `callback` gets two arguments `(error, pathContents)`.
 
 `bzipArchivePath` - The string path to the bzipped archive file.
 
-`callback` - The function to call after reading completes with an error or the
-buffer contents.
+`callback` - The function to call after reading completes with an error or the buffer contents.
 
 ### ArchiveEntry
 
